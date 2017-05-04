@@ -1,0 +1,40 @@
+<ul class="nav">
+	<f:for each="{menu.menuItems}" as="menuItem">
+		<f:render section="menuItem" arguments="{menuItem: menuItem}" />
+	</f:for>
+</ul>
+
+<f:section name="menuItem">
+	<f:if condition="{menuItem.header}">
+		<f:then>
+			<li class="nav-header">{menuItem.label}</li>
+		</f:then>
+		<f:else>
+			<f:if condition="{menuItem.separator}">
+				<f:then>
+					<li class="divider"></li>
+				</f:then>
+				<f:else>
+					<li class="{f:if(condition: menuItem.active, then: 'active')}">
+						<a href="{f:uri.action(action: menuItem.targetActionName, controller: menuItem.targetControllerName, package: menuItem.targetPackageKey)}">
+							<f:if condition="{menuItem.icon}">
+								<i class="fa fa-fw fa-{menuItem.icon}"></i>
+							</f:if>
+							{menuItem.label}
+							<f:if condition="{menuItem.badge}">
+								<span class="pull-right badge badge-info badge-hidden">{menuItem.badge}</span>
+							</f:if>
+						</a>
+						<f:if condition="{menuItem.subMenuItems}">
+							<ul>
+								<f:for each="{menuItem.subMenuItems}" as="subMenuItem">
+									<f:render section="menuItem" arguments="{menuItem: subMenuItem}" />
+								</f:for>
+							</ul>
+						</f:if>
+					</li>
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+</f:section>

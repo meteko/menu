@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "meteko/menu",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meteko\\Menu\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Meteko.Menu"
+        }
+    }
+}

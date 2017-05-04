@@ -1,0 +1,26 @@
+# Example from https://gist.github.com/bwaidelich/f3a3d6373acb558a7aa6
+Meteko:
+  Menu:
+    mainMenu:
+      menuItems:
+        -
+          label: 'HOME'
+          package: 'Acme.SomePackage'
+        -
+          label: 'Billing'
+          package: 'Acme.SomePackage'
+          controller: 'Invoice'
+          menuItems:
+            -
+              label: 'Invoices'
+              package: 'Acme.SomePackage'
+              controller: 'Invoice'
+            -
+              label: 'Dunnings'
+              package: 'Acme.SomePackage'
+              controller: 'Dunning'
+              action: 'latest'
+        -
+          label: 'Customers'
+          package: 'Acme.SomePackage'
+          controller: 'Customer'
